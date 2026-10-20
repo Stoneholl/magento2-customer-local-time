@@ -1,0 +1,35 @@
+<?php
+/** @var \Stoneholl\CustomerLocalTime\Block\Adminhtml\LocalTime $block */
+$state = $block->getLocalTimeState();
+$escaper = $block->getOutputEscaper();
+?>
+<?php if ($state['status'] !== 'hidden'): ?>
+<tr class="stoneholl-time-information">
+    <td colspan="2">
+        <section class="admin__page-section stoneholl-time-section" aria-labelledby="stoneholl-time-heading">
+            <div class="admin__page-section-item-title">
+                <span class="title" id="stoneholl-time-heading">
+                    <?= $escaper->escapeHtml(__('Time Information')) ?>
+                </span>
+            </div>
+            <div class="admin__page-section-item-content">
+                <table class="admin__table-secondary">
+                    <?php if ($state['show_customer_time'] ?? true): ?>
+                    <tr>
+                        <th><?= $escaper->escapeHtml(__('Current Customer Time')) ?></th>
+                        <td><?= $escaper->escapeHtml($state['status'] === 'ready'
+                            ? $state['time'] : __('Unavailable')) ?></td>
+                    </tr>
+                    <?php endif; ?>
+                    <?php if ($state['show_store_time'] ?? true): ?>
+                    <tr>
+                        <th><?= $escaper->escapeHtml(__('Current Store Time')) ?></th>
+                        <td><?= $escaper->escapeHtml($state['store_time'] ?? __('Unavailable')) ?></td>
+                    </tr>
+                    <?php endif; ?>
+                </table>
+            </div>
+        </section>
+    </td>
+</tr>
+<?php endif; ?>

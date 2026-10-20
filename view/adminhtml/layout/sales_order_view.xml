@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Stoneholl_CustomerLocalTime::css/local-time.css"/>
+    </head>
+    <body>
+        <referenceBlock name="order_info">
+            <block class="Stoneholl\CustomerLocalTime\Block\Adminhtml\LocalTime"
+                   name="stoneholl.client_order_date" as="stoneholl_client_order_date"
+                   template="Stoneholl_CustomerLocalTime::order-date.phtml">
+                <arguments>
+                    <argument name="feature" xsi:type="string">order_date</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="stoneholl.client_order_date" display="false"/>
+        <referenceContainer name="extra_customer_info">
+            <block class="Stoneholl\CustomerLocalTime\Block\Adminhtml\LocalTime"
+                   name="stoneholl.customer_local_time"
+                   template="Stoneholl_CustomerLocalTime::local-time.phtml">
+            </block>
+        </referenceContainer>
+    </body>
+</page>

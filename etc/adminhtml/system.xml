@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<config
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section
+            id="stoneholl_customer_local_time"
+            translate="label"
+            sortOrder="80"
+            showInDefault="1"
+            showInWebsite="0"
+            showInStore="0">
+            <label>Customer Local Time</label>
+            <tab>stoneholl</tab>
+            <resource>Stoneholl_CustomerLocalTime::config</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General</label>
+                <field
+                    id="enabled"
+                    translate="label comment"
+                    type="select"
+                    sortOrder="10"
+                    showInDefault="1"
+                    showInWebsite="0"
+                    showInStore="0"
+                    canRestore="1">
+                    <label>Show Time Information</label>
+                    <comment>
+                        Show current customer and store time at page load. Customer time is estimated only for countries
+                        with one IANA timezone. Uses the shipping country
+                        (billing for virtual orders). An address does not confirm the customer's current location.
+                        For roles with third-party order restrictions, verify the integration
+                        before granting View Customer Local Time access.
+                    </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>Stoneholl\CustomerLocalTime\Model\Config\Enabled</backend_model>
+                </field>
+                <field id="show_customer_time" translate="label comment" type="select" sortOrder="11"
+                       showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Show Current Customer Time</label>
+                    <comment>
+                        Show the estimated current customer time inside Time Information.
+                        The section is hidden when both current-time rows are disabled.
+                    </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>Stoneholl\CustomerLocalTime\Model\Config\Enabled</backend_model>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="show_store_time" translate="label comment" type="select" sortOrder="12"
+                       showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Show Current Store Time</label>
+                    <comment>
+                        Show current time in the order store timezone inside Time Information.
+                        The section is hidden when both current-time rows are disabled.
+                    </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>Stoneholl\CustomerLocalTime\Model\Config\Enabled</backend_model>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="show_order_date" translate="label comment" type="select" sortOrder="20"
+                       showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Show Client Order Date</label>
+                    <comment>
+                        Show the order creation date and time in the estimated customer timezone below Order Date.
+                        Uses the address country and timezone rules at order creation.
+                        Unavailable for multi-zone countries.
+                        Independent of Show Time Information. Does not measure processing or completion duration.
+                    </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>Stoneholl\CustomerLocalTime\Model\Config\Enabled</backend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

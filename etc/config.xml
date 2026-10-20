@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <stoneholl_customer_local_time>
+            <general>
+                <enabled>0</enabled>
+                <show_customer_time>1</show_customer_time>
+                <show_store_time>1</show_store_time>
+                <show_order_date>0</show_order_date>
+            </general>
+        </stoneholl_customer_local_time>
+    </default>
+</config>

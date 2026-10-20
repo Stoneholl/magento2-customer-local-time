@@ -1,0 +1,11 @@
+<?php
+/** @var \Stoneholl\CustomerLocalTime\Block\Adminhtml\LocalTime $block */
+$state = $block->getLocalTimeState();
+$escaper = $block->getOutputEscaper();
+?>
+<?php if ($state['status'] !== 'hidden'): ?>
+<tr class="stoneholl-client-order-date">
+    <th><?= $escaper->escapeHtml(__('Client Order Date')) ?></th>
+    <td><?= $escaper->escapeHtml($state['status'] === 'ready' ? $state['order_date'] : __('Unavailable')) ?></td>
+</tr>
+<?php endif; ?>

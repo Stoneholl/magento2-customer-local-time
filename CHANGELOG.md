@@ -1,5 +1,12 @@
 # Changelog
 
+
+## 1.0.1 - 2026-10-23
+
+- Rename the Composer package to `stoneholl/magento2-customer-local-time` and replace its corresponding legacy `stoneholl/module-customer-local-time` identity at `self.version`.
+- Require the canonical Core package from version 1.0.1 and update installation/migration documentation.
+- Keep Magento module identifiers, configuration, storage and licensing unchanged.
+
 ## 1.0.0
 
 - Add a native Time Information section below Account Information with AM/PM current customer and store clocks.

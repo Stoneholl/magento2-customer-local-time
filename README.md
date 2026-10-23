@@ -46,7 +46,7 @@ order-visibility restrictions, verify native current-order authorization before 
 This source is prepared for 1.0.0; public publication is a separate release step. After the package is published:
 
 ```bash
-composer require stoneholl/module-customer-local-time:^1.0
+composer require stoneholl/magento2-customer-local-time:^1.0
 bin/magento module:enable Stoneholl_Core Stoneholl_CustomerLocalTime
 bin/magento setup:upgrade --safe-mode=1
 bin/magento setup:di:compile
@@ -99,3 +99,16 @@ and this README, CHANGELOG and LICENSE only.
 To remove, back up first, disable/remove only this module, then run normal Magento upgrade/DI/cache maintenance with
 all other originally enabled modules preserved. Configuration lives under `stoneholl_customer_local_time/*`. There are
 no module-owned order/customer rows or tables. Keep shared Core while other packages require it.
+
+## Composer package naming
+
+The canonical Composer name is `stoneholl/magento2-customer-local-time`. The former `stoneholl/module-customer-local-time` name is a legacy identity. The renamed package replaces that identity at `self.version`, so Composer installs one copy of the Magento module. Existing immutable releases remain unchanged.
+
+When migrating an existing root requirement, back up the project and remove the old requirement without updating, then require the new package with its dependencies:
+
+```bash
+composer remove stoneholl/module-customer-local-time --no-update
+composer require stoneholl/magento2-customer-local-time --with-all-dependencies
+```
+
+Run the Magento upgrade, compilation and cache commands documented above according to your deployment mode. Keep native `Stoneholl_*` module names and configuration paths unchanged.

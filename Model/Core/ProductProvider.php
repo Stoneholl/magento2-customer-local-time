@@ -15,7 +15,7 @@ class ProductProvider implements ProductProviderInterface
             'customer-local-time',
             'Stoneholl Customer Local Time',
             ['Stoneholl_CustomerLocalTime'],
-            ['stoneholl/module-customer-local-time']
+            ['stoneholl/magento2-customer-local-time']
         )];
     }
 }

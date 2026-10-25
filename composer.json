@@ -1,6 +1,6 @@
 {
     "name": "stoneholl/magento2-customer-local-time",
-    "description": "Country-based local time estimates on the Magento Admin order page, with explicit uncertainty.",
+    "description": "Country-based local time estimates on the Magento 2 Admin order page, with explicit uncertainty.",
     "type": "magento2-module",
     "license": "MIT",
     "require": {
@@ -25,5 +25,17 @@
     },
     "replace": {
         "stoneholl/module-customer-local-time": "self.version"
-    }
+    },
+    "keywords": [
+        "magento2",
+        "magento",
+        "magento 2",
+        "magento2 module",
+        "magento open source",
+        "magento 2 extension",
+        "admin",
+        "orders",
+        "timezone",
+        "local time"
+    ]
 }
